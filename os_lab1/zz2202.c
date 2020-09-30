@@ -5,6 +5,7 @@
 #include<sys/wait.h>
 #include <string.h>
 #define ARGLEN 1000
+#define ARGNUM 100
 #define PATHLEN 100
 
 int main() {
@@ -25,7 +26,7 @@ int main() {
             if (pid == 0) { // we enter the child process
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
                 // split the argv string into a list of strings with NULL at the end of the list
-                char ** arg_lst = malloc(sizeof(char) * ARGLEN);
+                char ** arg_lst = malloc(sizeof(char) * ARGNUM);
                 char * token;
                 token = strtok(argv, " ");
                 int i = 0;
