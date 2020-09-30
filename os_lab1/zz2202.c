@@ -23,7 +23,7 @@ int main() {
             if (pid == 0) { // we enter the child process
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
                 char * arg_lst[10];
-                arg_lst[10] = NULL;
+                arg_lst[9] = NULL;
                 arg_lst[0] = strtok(argv, " ");
                 char path[MAXLEN];
                 strcat(path, "/bin/");
