@@ -41,6 +41,8 @@ int main() {
                 if (execve(path, arg_lst, NULL) < 0) {
                     printf("Command Not Found!\n");
                     exit(0);
+                } else {
+                    free(arg_lst);
                 }
             }
         }
