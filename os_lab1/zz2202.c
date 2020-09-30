@@ -10,8 +10,8 @@
 int main() {
     while (1) {
         printf("lab1> ");
-        char argv[MAXLEN];
-        fgets(argv, MAXLEN, stdin);
+        char argv[ARGLEN];
+        fgets(argv, ARGLEN, stdin);
         argv[strlen(argv) - 1] = '\0';
         printf("Parent Process %d\n", getpid());
         if (strcmp(argv, "printid") == 0) {
