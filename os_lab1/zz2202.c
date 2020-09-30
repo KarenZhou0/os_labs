@@ -21,7 +21,7 @@ int main() {
         } else {
             int pid = fork();
             if (pid == 0) { // we enter the child process
-                printf("Child process %d will execute the command %s\n", getpid(), argv);
+                printf("Child process %d will execute the command %s", getpid(), argv);
                 // split the argv string into a list of strings with NULL at the end of the list
                 char ** arg_lst = malloc(sizeof(char) * MAXLEN);
                 char * token;
