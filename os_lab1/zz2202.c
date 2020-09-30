@@ -21,10 +21,10 @@ int main() {
             int pid = fork();
             if (pid == 0) { // we enter the child process
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
-                argv = strtok(NULL, " ");
+                const char * arg_lst = strtok(argv, " ");
                 char * path = "/bin/";
-                strcat(path, argv[0]);
-                execve(path, argv, NULL);
+                strcat(path, arg_lst[0]);
+                execve(path, arg_lst, NULL);
                 printf("Command Not Found!\n");
                 exit(0);
             }
