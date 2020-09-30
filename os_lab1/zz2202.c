@@ -22,9 +22,18 @@ int main() {
             int pid = fork();
             if (pid == 0) { // we enter the child process
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
-                char * arg_lst[10];
-                arg_lst[9] = NULL;
-                arg_lst[0] = strtok(argv, " ");
+                // split the argv string into a list of strings with NULL at the end of the list
+                char ** arg_lst;
+                char * token;
+                token = strtok(argv, " ");
+                int i = 0;
+                while (token != NULL) {
+                    arg_lst[i] = token;
+                    token = strtok(NULL, " ");
+                    i++;
+                }
+                arg_lst[i+1] = NULL;
+                // create a path as the first argument
                 char path[MAXLEN];
                 strcpy(path, "/bin/");
                 strcpy(path, arg_lst[0]);
