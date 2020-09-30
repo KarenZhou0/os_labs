@@ -4,12 +4,13 @@
 #include<sys/types.h> 
 #include<sys/wait.h>
 #include <string.h>
+#define MAXLEN 1000
 
 int main() {
     while (1) {
         printf("lab1> ");
         char * argv = "";
-        fgets(argv, 500, stdin);
+        fgets(argv, MAXLEN, stdin);
         printf("Parent Process %d\n", getpid());
         if (strcmp(argv, "printid") == 0) {
             printf("The ID of the current process is %d\n", getpid());
@@ -30,7 +31,7 @@ int main() {
                 exit(0);
             }
         }
-    }
     wait(NULL);
+    }
     return 0;
 }
