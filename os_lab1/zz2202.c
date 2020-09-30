@@ -9,7 +9,7 @@
 int main() {
     while (1) {
         printf("lab1> ");
-        char * argv = "";
+        char argv[MAXLEN];
         fgets(argv, MAXLEN, stdin);
         printf("Parent Process %d\n", getpid());
         if (strcmp(argv, "printid") == 0) {
