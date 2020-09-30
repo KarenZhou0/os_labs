@@ -24,7 +24,7 @@ int main() {
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
                 char * arg_lst[10];
                 arg_lst[0] = strtok(argv, " ");
-                printf("arg list is %s\n", arg_lst[0]);
+                printf("arg list is %s\n", arg_lst[1]);
                 char * path = "/bin/";
                 printf("path is %s\n", path);
                 strcat(path, arg_lst[0]);
