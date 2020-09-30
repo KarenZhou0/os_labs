@@ -22,7 +22,7 @@ int main() {
         } else {
             int pid = fork();
             if (pid == 0) { // we enter the child process
-                printf("Child process %d will execute the command %s", getpid(), argv);
+                printf("Child process %d will execute the command %s\n", getpid(), argv);
                 // split the argv string into a list of strings with NULL at the end of the list
                 char ** arg_lst = malloc(sizeof(char) * MAXLEN);
                 char * token;
@@ -38,8 +38,6 @@ int main() {
                 char path[MAXLEN];
                 strcpy(path, "/bin/");
                 strcat(path, arg_lst[0]);
-                printf("path is %s\n", path);
-                printf("arg_lst is %s\n", *arg_lst);
                 // printf("arg list is %s\n", arg_lst[0]);
                 if (execve(path, arg_lst, NULL) < 0) {
                     printf("Command Not Found!\n");
