@@ -26,7 +26,7 @@ int main() {
                 arg_lst[0] = strtok(argv, " ");
                 char * path = "/bin/";
                 strcat(path, arg_lst[0]);
-                printf(path);
+                printf("path is %s\n", path);
                 execve(path, arg_lst, NULL);
                 printf("Command Not Found!\n");
                 exit(0);
