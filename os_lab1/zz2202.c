@@ -21,7 +21,8 @@ int main() {
             int pid = fork();
             if (pid == 0) { // we enter the child process
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
-                const char * arg_lst = strtok(argv, " ");
+                const char * arg_lst[10];
+                arg_lst[0] = strtok(argv, " ");
                 char * path = "/bin/";
                 strcat(path, arg_lst[0]);
                 execve(path, arg_lst, NULL);
