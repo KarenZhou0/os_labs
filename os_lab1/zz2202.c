@@ -11,12 +11,13 @@ int main() {
         printf("lab1> ");
         char argv[MAXLEN];
         fgets(argv, MAXLEN, stdin);
+        argv[strlen(argv) - 1] = '\0';
         printf("Parent Process %d\n", getpid());
-        if (strcmp(argv, "printid\n") == 0) {
+        if (strcmp(argv, "printid") == 0) {
             printf("The ID of the current process is %d\n", getpid());
-        } else if (strcmp(argv, "greet\n") == 0) {
+        } else if (strcmp(argv, "greet") == 0) {
             printf("Hello\n");
-        } else if (strcmp(argv, "exit\n") == 0) {
+        } else if (strcmp(argv, "exit") == 0) {
             exit(0);
         } else {
             int pid = fork();
