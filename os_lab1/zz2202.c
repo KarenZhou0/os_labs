@@ -25,6 +25,7 @@ int main() {
                 char * arg_lst[10];
                 arg_lst[0] = strtok(argv, " ");
                 char * path = "/bin/";
+                printf("path is %s\n", path);
                 strcat(path, arg_lst[0]);
                 printf("path is %s\n", path);
                 if (execve(path, arg_lst, NULL) < 0) {
