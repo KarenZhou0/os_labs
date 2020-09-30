@@ -27,12 +27,13 @@ int main() {
                 char * path = "/bin/";
                 strcat(path, arg_lst[0]);
                 printf("path is %s\n", path);
-                execve(path, arg_lst, NULL);
-                printf("Command Not Found!\n");
-                exit(0);
+                if (execve(path, arg_lst, NULL) < 0) {
+                    printf("Command Not Found!\n");
+                    exit(0);
+                }
             }
         }
-    wait(NULL);
+        wait(NULL);
     }
     return 0;
 }
