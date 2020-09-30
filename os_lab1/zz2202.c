@@ -36,7 +36,7 @@ int main() {
                 // create a path as the first argument
                 char path[MAXLEN];
                 strcpy(path, "/bin/");
-                strcpy(path, arg_lst[0]);
+                strcat(path, arg_lst[0]);
                 printf("path is %s\n", path);
                 printf("arg_lst is %s\n", *arg_lst);
                 // printf("arg list is %s\n", arg_lst[0]);
