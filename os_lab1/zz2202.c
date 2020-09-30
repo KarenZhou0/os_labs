@@ -36,7 +36,7 @@ int main() {
                 }
                 arg_lst[i+1] = NULL;
                 // create a path as the first argument
-                char * path[PATHLEN];
+                char path[PATHLEN];
                 strcpy(path, "/bin/");
                 strcat(path, arg_lst[0]);
                 if (execve(path, arg_lst, NULL) < 0) {
