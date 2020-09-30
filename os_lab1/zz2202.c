@@ -37,6 +37,8 @@ int main() {
                 char path[MAXLEN];
                 strcpy(path, "/bin/");
                 strcpy(path, arg_lst[0]);
+                printf("path is %s\n", path);
+                printf("arg_lst is %s\n", arg_lst);
                 // printf("arg list is %s\n", arg_lst[0]);
                 if (execve(path, arg_lst, NULL) < 0) {
                     printf("Command Not Found!\n");
