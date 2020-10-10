@@ -11,7 +11,7 @@
 int main() {
     while (1) {
         printf("lab1> ");
-        char argv[ARGLEN];
+        char * argv[ARGLEN] = "/bin/";
         fgets(argv, ARGLEN, stdin);
         argv[strlen(argv) - 1] = '\0';
         printf("Parent Process %d\n", getpid());
@@ -25,27 +25,11 @@ int main() {
             int pid = fork();
             if (pid == 0) { // we enter the child process
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
-                // split the argv string into a list of strings with NULL at the end of the list
-                char ** arg_lst = malloc(sizeof(char) * ARGNUM);
-                char * token;
-                token = strtok(argv, " ");
-                int i = 0;
-                while (token != NULL) {
-                    arg_lst[i] = token;
-                    token = strtok(NULL, " ");
-                    i++;
-                }
-                arg_lst[i+1] = NULL;
-                // create a path as the first argument
-                char path[PATHLEN];
-                strcpy(path, "/bin/");
-                strcat(path, arg_lst[0]);
-                if (execve(path, arg_lst, NULL) < 0) {
-                    printf("Command Not Found!\n");
-                    exit(0);
-                } else {
-                    free(arg_lst);
-                }
+                strcat(path, argv);
+                execve(path, argv, NULL);
+                // execve failed
+                printf("Command Not Found!\n");
+                exit(0);
             }
         }
         wait(NULL);
