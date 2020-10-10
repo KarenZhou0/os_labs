@@ -5,7 +5,6 @@
 #include<sys/wait.h>
 #include <string.h>
 #define ARGLEN 1000
-#define ARGNUM 100
 #define PATHLEN 100
 
 int main() {
@@ -28,6 +27,7 @@ int main() {
                 char * arg_list[] = {argv, NULL};
                 char path[PATHLEN] = "/bin/";
                 strcat(path, argv);
+                printf("%s\n", path);
                 execve(path, arg_list, NULL);
                 // execve failed
                 printf("Command Not Found!\n");
