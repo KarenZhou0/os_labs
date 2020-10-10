@@ -10,7 +10,7 @@
 int main() {
     while (1) {
         printf("lab1> ");
-        char * argv = NULL;
+        char argv[ARGLEN];
         fgets(argv, ARGLEN, stdin);
         argv[strlen(argv) - 1] = '\0';
         printf("Parent Process %d\n", getpid());
@@ -27,7 +27,6 @@ int main() {
                 char * arg_list[] = {argv, NULL};
                 char path[PATHLEN] = "/bin/";
                 strcat(path, argv);
-                printf("%s\n", path);
                 execve(path, arg_list, NULL);
                 // execve failed
                 printf("Command Not Found!\n");
