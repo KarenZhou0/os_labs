@@ -11,7 +11,7 @@
 int main() {
     while (1) {
         printf("lab1> ");
-        char * argv[ARGLEN] = "/bin/";
+        char argv[ARGLEN] = "/bin/";
         fgets(argv, ARGLEN, stdin);
         argv[strlen(argv) - 1] = '\0';
         printf("Parent Process %d\n", getpid());
