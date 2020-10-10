@@ -11,7 +11,7 @@
 int main() {
     while (1) {
         printf("lab1> ");
-        char argv[ARGLEN] = "/bin/";
+        char * argv;
         fgets(argv, ARGLEN, stdin);
         argv[strlen(argv) - 1] = '\0';
         printf("Parent Process %d\n", getpid());
@@ -25,6 +25,8 @@ int main() {
             int pid = fork();
             if (pid == 0) { // we enter the child process
                 printf("Child process %d will execute the command %s\n", getpid(), argv);
+                char * argv[] = {input, NULL};
+                char path[PATHLEN] = "/bin/";
                 strcat(path, argv);
                 execve(path, argv, NULL);
                 // execve failed
