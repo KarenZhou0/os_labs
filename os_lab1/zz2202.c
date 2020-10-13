@@ -27,10 +27,13 @@ int main() {
                 char * arg_list[] = {argv, NULL};
                 char path[PATHLEN] = "/bin/";
                 strcat(path, argv);
-                execve(path, arg_list, NULL);
-                // execve failed
-                printf("Command Not Found!\n");
-                exit(0);
+                if (strcmp(argv, "ls") == 0 || strcmp(argv, "pwd") == 0 || strcmp(argv, "ps") == 0 || strcmp(argv, "date") == 0 || strcmp(argv, "lscpu") == 0) {
+                    execve(path, arg_list, NULL);
+                } else {
+                    // execve failed
+                    printf("Command Not Found!\n");
+                    exit(0);
+                }
             }
         }
         wait(NULL);
